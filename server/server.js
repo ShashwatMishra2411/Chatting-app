@@ -6,6 +6,7 @@ const io = require('socket.io')(5000, {
   
   const connectedClients = {};
 
+  console.log("Server started on port 5000");
   io.on('connection', socket => {
     const id = socket.handshake.query.id;
     socket.join(id);
