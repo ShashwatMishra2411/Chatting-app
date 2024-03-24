@@ -1,16 +1,10 @@
 const express = require('express');
 const app = express();
-const https = require('https'); // Import the https module
-const fs = require('fs'); // For file system access
-// Read the PEM file containing certificate and key (replace with your path)
-const httpsOptions = {
-  cert: fs.readFileSync('./server.crt'),
-  key: fs.readFileSync('./server.key')
-};
+const http = require('http'); // Import the http module
 
-const httpsServer = https.createServer(httpsOptions, app); // Create HTTPS server instance
+const server = http.createServer(app); // Create HTTP server instance
 
-const io = require('socket.io')(httpsServer, {
+const io = require('socket.io')(server, {
   cors: {
     origin: '*',
   }
@@ -39,6 +33,6 @@ io.on('connection', socket => {
   });
 });
 
-httpsServer.listen(5000, () => {
-  console.log("Express server started on port 5000 (HTTPS)");
+server.listen(5000, () => {
+  console.log("Express server started on port 5000 (HTTP)");
 });
