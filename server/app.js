@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const http = require('http'); // Import the http module
+const PORT = process.env.PORT || 5000; 
 
 const server = http.createServer(app); // Create HTTP server instance
 
@@ -33,6 +34,6 @@ io.on('connection', socket => {
   });
 });
 
-server.listen(5000, () => {
+server.listen(PORT, () => {
   console.log("Express server started on port 5000 (HTTP)");
 });
