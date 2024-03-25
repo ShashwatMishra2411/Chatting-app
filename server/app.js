@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const http = require('http'); // Import the http module
-const PORT = process.env.PORT || 5000; 
+const PORT = process.env.PORT; 
 
 const server = http.createServer(app); // Create HTTP server instance
 
