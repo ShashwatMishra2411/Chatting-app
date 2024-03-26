@@ -35,5 +35,5 @@ io.on('connection', socket => {
 });
 
 server.listen(PORT, () => {
-  console.log("Express server started on port 5000 (HTTP)");
+  console.log("Express server started on port 5000");
 });
